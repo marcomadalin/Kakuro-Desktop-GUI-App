@@ -1,0 +1,500 @@
+***Jocs de proves driver CtrlPresentacion***
+###############################################################################################
+##TEST1--Navegacio app
+
+Prova1
+Descripcio: Navegacio pels menus fins guardar un kakuro
+Objectiu: Comprovar funcionalitat de guardar a repositori des de la capa de presentacio
+Entrada:
+1
+
+2
+
+1
+
+5,5
+
+*,*,*,C24,C7
+*,C6,C24F8,?,?
+F18,?,?,?,?
+F23,?,?,?,?
+F12,?,?,*,*
+
+driver
+
+Sortida:
+Press (1) to Start
+
+MAIN MENU
+(1) New game
+(2) Access to repository
+(>=3) Shut down
+
+REPOSITORY MENU
+(1) Save Kakuro
+(2) Delete Kakuro
+(>=3) Shut down
+
+Please Introduce a Kakuro:
+Introduce kakuro size: (n,m)
+
+Introduce kakuro:
+
+Please Introduce a name:
+
+
+(1) Return MAIN MENU
+(>=2) Exit game
+
+Resultat de la prova: ok
+
+Prova2
+Descripcio: Navegacio pels menus fins eliminar un kakuro
+Objectiu: Comprovar funcionalitat de eliminar a repositori des de la capa de presentacio 
+Entrada:
+2
+
+2
+
+0
+
+Sortida:
+MAIN MENU
+(1) New game
+(2) Access to repository
+(>=3) Shut down
+
+REPOSITORY MENU
+(1) Save Kakuro
+(2) Delete Kakuro
+(>=3) Shut down
+
+0-->driver
+1-->kakuro13x13
+2-->kakuro4x4
+3-->kakuro5x5
+4-->kakuro7x7
+5-->kakuro8x8
+6-->kakuro9x9
+Enter a number to select a file:
+
+File has been successfully deleted
+
+(1) Return MAIN MENU
+(>=2) Exit game
+
+Resultat de la prova:ok
+
+Prova3
+Descripcio: Navegacio pels menus fins solucionar un kakuro introduit per pantalla
+Objectiu: Comprovar funcionalitat de solucionar kakuros entrats per terminal des de la capa de presentacio 
+Entrada:
+1
+
+1
+
+5,5
+
+*,*,*,C24,C7
+*,C6,C24F8,?,?
+F18,?,?,?,?
+F23,?,?,?,?
+F12,?,?,*,*
+
+driver
+
+2
+Sortida:
+MAIN MENU
+(1) New game
+(2) Access to repository
+(>=3) Shut down
+
+GAME MENU
+(1) Enter Kakuro
+(2) Download Kakuro
+(3) Generate Kakuro
+(>=4) Shut down
+
+Please Introduce a Kakuro:
+Introduce kakuro size: (n,m)
+
+Introduce kakuro:
+
+Please Introduce a name:
+
+* * * C24 C7 
+* C6 C24F8 ? ? 
+F18 ? ? ? ? 
+F23 ? ? ? ? 
+F12 ? ? * * 
+
+GAME MENU
+(1) Manual Solver
+(2) Automatic Solver
+(>=3) Shut down
+
+* * * C24 C7 
+* C6 C24F8 7 1 
+F18 1 7 8 2 
+F23 2 8 9 4 
+F12 3 9 * * 
+
+(1) Return MAIN MENU
+(>=2) Exit game
+
+Resultat de la prova:ok
+
+Prova4
+Descripcio: Navegacio pels menus fins solucionar un kakuro descarregat del repositori
+Objectiu: Comprovar funcionalitat de solucionar kakuros descarregats del repositor des de la capa de presentacio 
+Entrada:
+1
+
+2
+
+0
+
+2
+Sortida:
+MAIN MENU
+(1) New game
+(2) Access to repository
+(>=3) Shut down
+
+GAME MENU
+(1) Enter Kakuro
+(2) Download Kakuro
+(3) Generate Kakuro
+(>=4) Shut down
+
+0-->driver
+1-->kakuro13x13
+2-->kakuro4x4
+3-->kakuro5x5
+4-->kakuro7x7
+5-->kakuro8x8
+6-->kakuro9x9
+Enter a number to select a file:
+
+* * * C24 C7 
+* C6 C24F8 ? ? 
+F18 ? ? ? ? 
+F23 ? ? ? ? 
+F12 ? ? * * 
+
+GAME MENU
+(1) Manual Solver
+(2) Automatic Solver
+(>=3) Shut down
+
+* * * C24 C7 
+* C6 C24F8 7 1 
+F18 1 7 8 2 
+F23 2 8 9 4 
+F12 3 9 * * 
+Resultat de la prova:ok
+
+Prova5
+Descripcio: Navegacio pels menus fins solucionar un kakuro generat aleatoriament
+Objectiu: Comprovar funcionalitat de solucionar kakuros generats aleatoriament des de la capa de presentacio 
+Entrada:
+1
+
+3
+
+4,7
+
+random
+
+2
+Sortida:
+MAIN MENU
+(1) New game
+(2) Access to repository
+(>=3) Shut down
+
+GAME MENU
+(1) Enter Kakuro
+(2) Download Kakuro
+(3) Generate Kakuro
+(>=4) Shut down
+
+Introduce kakuro size: (n,m)
+
+* * C16 C5 * C23 C10 
+* C6F13 ? ? C5F11 ? ? 
+F29 ? ? ? ? ? ? 
+F3 ? ? F9 ? ? * 
+Please Introduce a name:
+
+* * C16 C5 * C23 C10 
+* C6F13 ? ? C5F11 ? ? 
+F29 ? ? ? ? ? ? 
+F3 ? ? F9 ? ? * 
+
+GAME MENU
+(1) Manual Solver
+(2) Automatic Solver
+(>=3) Shut down
+
+* * C16 C5 * C23 C10 
+* C6F13 9 4 C5F11 8 3 
+F29 4 6 1 2 9 7 
+F3 2 1 F9 3 6 * 
+
+(1) Return MAIN MENU
+(>=2) Exit game
+
+Resultat de la prova:ok
+
+
+###############################################################################################
+##TEST2--Llegir per terminal
+
+Prova1
+Descripcio: Lectura de Kakuro amb mes de una solucio
+Objectius: funcionalitat de deteccio de kakuros no vàlids
+Entrada:
+3,3
+
+*,C4,C5
+F4,?,?
+F5,?,?
+
+Sortida: Exception in thread "main" dominio.clases.ExceptionKakuro: The kakuro is more than a solution
+Resultat de la prova: ok
+
+Prova2
+Descripcio: Kakuro correcte amb una solucio
+Objectius: funcionalitat de deteccio de kakuros vàlids
+Entrada:
+5,5
+
+*,*,*,C24,C7
+*,C6,C24F8,?,?
+F18,?,?,?,?
+F23,?,?,?,?
+F12,?,?,*,*
+
+Sortida: OK
+Resultat de la prova: ok, perque el kakuro es correcte
+
+
+Prova3
+Descripcio: Kakuro correcte amb una solucio pero mes gran
+Objectius: funcionalitat de deteccio de kakuros vàlids mes complexos
+Entrada:
+13,13
+
+*,*,*,*,*,C16,C3,*,*,*,*,*,*
+*,C6,C21,*,F11,?,?,C28,*,C29,C17,*,*
+F4,?,?,*,F12,?,?,?,C7F14,?,?,*,*
+F7,?,?,*,C16,C4,F26,?,?,?,?,*,*
+F3,?,?,C23F12,?,?,C29F11,?,?,?,*,*,*
+*,C16F41,?,?,?,?,?,?,?,?,C7,C38,C3
+F17,?,?,?,*,F15,?,?,*,F6,?,?,?
+F21,?,?,?,C29,C23F8,?,?,C16,C4F14,?,?,?
+*,*,*,F39,?,?,?,?,?,?,?,?,C6
+*,*,*,C4F14,?,?,?,F8,?,?,F6,?,?
+*,*,F20,?,?,?,?,C17,C16,*,F9,?,?
+*,*,F12,?,?,F21,?,?,?,*,F10,?,?
+*,*,*,*,*,*,F17,?,?,*,*,*,*
+
+Sortida: OK
+Resultat de la prova: ok, perque el kakuro es correcte
+
+
+###############################################################################################
+##TEST3--Escriure per terminal
+
+Prova1
+Descripcio: Escribim per terminal el taulell del kakuro
+Objectiu: Comprovar que s escriu amb el format correcte
+Entrada:
+9,9
+
+*,*,C19,C12,*,*,*,C7,C10
+*,F14,?,?,C4,C11,C17F4,?,?
+*,C7F36,?,?,?,?,?,?,?
+F12,?,?,F10,?,?,?,C25,C14
+F3,?,?,C20,C11F20,?,?,?,?
+F17,?,?,?,?,C8,F6,?,?
+*,C11,C7F13,?,?,?,C4F10,?,?
+F28,?,?,?,?,?,?,?,*
+F6,?,?,*,*,F8,?,?,*
+
+Sortida:
+
+
+Resultat de la prova: ok
+
+Prova2
+Descripcio: Escribim per terminal el taulell del kakuro
+Objectiu: Comprovar que s escriu amb el format correcte
+Entrada:
+13,13
+
+*,*,*,*,*,C16,C3,*,*,*,*,*,*
+*,C6,C21,*,F11,?,?,C28,*,C29,C17,*,*
+F4,?,?,*,F12,?,?,?,C7F14,?,?,*,*
+F7,?,?,*,C16,C4,F26,?,?,?,?,*,*
+F3,?,?,C23F12,?,?,C29F11,?,?,?,*,*,*
+*,C16F41,?,?,?,?,?,?,?,?,C7,C38,C3
+F17,?,?,?,*,F15,?,?,*,F6,?,?,?
+F21,?,?,?,C29,C23F8,?,?,C16,C4F14,?,?,?
+*,*,*,F39,?,?,?,?,?,?,?,?,C6
+*,*,*,C4F14,?,?,?,F8,?,?,F6,?,?
+*,*,F20,?,?,?,?,C17,C16,*,F9,?,?
+*,*,F12,?,?,F21,?,?,?,*,F10,?,?
+*,*,*,*,*,*,F17,?,?,*,*,*,*
+
+
+Sortida:
+
+* * * * * C16 C3 * * * * * *
+* C6 C21 * F11 ? ? C28 * C29 C17 * *
+F4 ? ? * F12 ? ? ? C7F14 ? ? * *
+F7 ? ? * C16 C4 F26 ? ? ? ? * *
+F3 ? ? C23F12 ? ? C29F11 ? ? ? * * *
+* C16F41 ? ? ? ? ? ? ? ? C7 C38 C3
+F17 ? ? ? * F15 ? ? * F6 ? ? ?
+F21 ? ? ? C29 C23F8 ? ? C16 C4F14 ? ? ?
+* * * F39 ? ? ? ? ? ? ? ? C6
+* * * C4F14 ? ? ? F8 ? ? F6 ? ?
+* * F20 ? ? ? ? C17 C16 * F9 ? ?
+* * F12 ? ? F21 ? ? ? * F10 ? ?
+* * * * * * F17 ? ? * * * *
+
+Resultat de la prova: ok
+
+
+
+###############################################################################################
+##TEST4--Jugar manualment
+
+Prova1
+Descripcio: Seleccionem caselles incorrectes
+Objectiu: Que el programa retorni el error
+Entrada:
+9,9
+
+*,*,C19,C12,*,*,*,C7,C10
+*,F14,?,?,C4,C11,C17F4,?,?
+*,C7F36,?,?,?,?,?,?,?
+F12,?,?,F10,?,?,?,C25,C14
+F3,?,?,C20,C11F20,?,?,?,?
+F17,?,?,?,?,C8,F6,?,?
+*,C11,C7F13,?,?,?,C4F10,?,?
+F28,?,?,?,?,?,?,?,*
+F6,?,?,*,*,F8,?,?,*
+
+0 0 1
+
+10 10 1
+
+0 2 1
+
+0 1 -2
+
+Sortida:
+Incorrect row and column values
+Incorrect row and column values
+Incorrect row and column values
+Incorrect row and column values
+* * C19 C12 * * * C7 C10
+* F14 ? ? C4 C11 C17F4 ? ?
+* C7F36 ? ? ? ? ? ? ?
+F12 ? ? F10 ? ? ? C25 C14
+F3 ? ? C20 C11F20 ? ? ? ?
+F17 ? ? ? ? C8 F6 ? ?
+* C11 C7F13 ? ? ? C4F10 ? ?
+F28 ? ? ? ? ? ? ? *
+F6 ? ? * * F8 ? ? *
+
+Resultat de la prova: ok
+
+Prova2
+Descripcio: Introduim valors de forma que sobrepasem el valor de fila i columna
+Objectiu: No deixar introduir valors incorrectes i repetits
+Entrada:
+9,9
+
+*,*,C19,C12,*,*,*,C7,C10
+*,F14,?,?,C4,C11,C17F4,?,?
+*,C7F36,?,?,?,?,?,?,?
+F12,?,?,F10,?,?,?,C25,C14
+F3,?,?,C20,C11F20,?,?,?,?
+F17,?,?,?,?,C8,F6,?,?
+*,C11,C7F13,?,?,?,C4F10,?,?
+F28,?,?,?,?,?,?,?,*
+F6,?,?,*,*,F8,?,?,*
+
+1 3 10
+
+1 3 0
+
+1 7 5
+
+1 7 8
+
+1 3 7
+1 2 7
+
+1 2 8
+
+Sortida:
+
+The value must be between 1 and 9
+The value must be between 1 and 9
+Row sum exceeded
+Column sum exceeded
+Row repeat value
+Row repeat value
+Row sum exceeded
+
+Resultat prova:ok, para cada entrada imprime el error correcto
+
+Prova2
+Descripcio: Introduim valors correctes demanant pista anteriorment
+Objectiu: Provar la funcio de demanar pista i de introduir valors sense error
+Entrada:
+9,9
+
+*,*,C19,C12,*,*,*,C7,C10
+*,F14,?,?,C4,C11,C17F4,?,?
+*,C7F36,?,?,?,?,?,?,?
+F12,?,?,F10,?,?,?,C25,C14
+F3,?,?,C20,C11F20,?,?,?,?
+F17,?,?,?,?,C8,F6,?,?
+*,C11,C7F13,?,?,?,C4F10,?,?
+F28,?,?,?,?,?,?,?,*
+F6,?,?,*,*,F8,?,?,*
+
+1 2 -2
+1 2 5
+
+1 3 -2
+1 3 9
+
+2 2 -2
+2 2 2
+
+Sortida:
+5
+
+9
+
+2
+
+* * C19 C12 * * * C7 C10
+* F14 5 9 C4 C11 C17F4 ? ?
+* C7F36 2 ? ? ? ? ? ?
+F12 ? ? F10 ? ? ? C25 C14
+F3 ? ? C20 C11F20 ? ? ? ?
+F17 ? ? ? ? C8 F6 ? ?
+* C11 C7F13 ? ? ? C4F10 ? ?
+F28 ? ? ? ? ? ? ? *
+F6 ? ? * * F8 ? ? *
+
+Resultat de la prova: ok

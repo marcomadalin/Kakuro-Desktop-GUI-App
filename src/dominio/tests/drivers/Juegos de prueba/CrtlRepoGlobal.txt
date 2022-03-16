@@ -1,0 +1,172 @@
+***Jocs de proves driver CtrlRepoGlobal***
+###############################################################################################
+##TEST1--OBTENIR LLISTA DE ARXIUS
+Prova 1
+Descripcio: demanem la llista de arxius que hi ha actualment al repositori global
+Objectius: veure que retorna realment els arxius que hi ha a la carpeta
+Entrada:
+Sortida:
+una llista del tipus:
+0-->1
+1-->2
+(si no se ha fet cap save o delete serà exactament aquesta)
+Resultat de la prova: ok
+
+###############################################################################################
+##TEST2-MIDA DEL ARXIU
+
+Prova1
+Descripcio: demanem la mida de un arxiu guardat al repositori
+Objectius: veure que la mida del arxiu ha de ser exactament la del kakuro que guarda
+Entrada: 0
+Sortida: 9x9
+Resultat de la prova: ok
+
+Prova2
+Descripcio: demanem la mida de un arxiu guardat al repositori
+Objectius: veure que la mida del arxiu ha de ser exactament la del kakuro que guarda
+Entrada: 0
+Sortida: 5x5
+Resultat de la prova: ok
+
+###############################################################################################
+##TEST3--MATRIU REPO
+
+Prova1
+Descripcio: Demanem la matriu de un kakuro guardat al repo
+Objectius: funcionalitat de lectura del repo
+Entrada: 0
+Sortida:
+* * C19 C12 * * * C7 C10
+* F14 ? ? C4 C11 C17F4 ? ?
+* C7F36 ? ? ? ? ? ? ?
+F12 ? ? F10 ? ? ? C25 C14
+F3 ? ? C20 C11F20 ? ? ? ?
+F17 ? ? ? ? C8 F6 ? ?
+* C11 C7F13 ? ? ? C4F10 ? ?
+F28 ? ? ? ? ? ? ? *
+F6 ? ? * * F8 ? ? *
+
+Resultat de la prova: ok
+
+Prova2
+Descripcio: Demanem la matriu de un kakuro guardat al repo
+Objectius: funcionalitat de lectura del repo
+Entrada: 1
+Sortida:
+* * * C24 C7
+* C6 C24F8 ? ?
+F18 ? ? ? ?
+F23 ? ? ? ?
+F12 ? ? * *
+
+Resultat de la prova: ok
+###############################################################################################
+##TEST4--SOLUCIo REPO
+
+Prova1
+Descripcio: Demanem la solucio de un kakuro guardat al repo
+Objectius: funcionalitat de lectura de solucions de un fitxer
+Entrada: 0 1
+Sortida:
+* * C19 C12 * * * C7 C10
+* F14 5 9 C4 C11 C17F4 1 3
+* C7F36 2 3 1 8 9 6 7
+F12 4 8 F10 3 2 5 C25 C14
+F3 2 1 C20 C11F20 1 3 9 7
+F17 1 3 9 4 C8 F6 1 5
+* C11 C7F13 7 1 5 C4F10 8 2
+F28 7 5 4 6 3 1 2 *
+F6 4 2 * * F8 3 5 *
+
+Resultat de la prova: ok
+
+Prova2
+Descripcio: Demanem la solucio de un kakuro guardat al repo
+Objectius: funcionalitat de lectura de solucions de un fitxer
+Entrada: 1 2
+Sortida:
+* * * C24 C7
+* C6 C24F8 7 1
+F18 1 7 8 2
+F23 2 8 9 4
+F12 3 9 * *
+
+Resultat de la prova: ok
+
+###############################################################################################
+##TEST5--GUARDAR
+
+Prova1
+Descripcio: Guardem un kakuro nou al repo
+Objectius: funcionalitat de lectura per terminal i escritura en un arxiu
+Entrada: qualsevol nom
+*,*,*,*,*,C16,C3,*,*,*,*,*,*
+*,C6,C21,*,F11,?,?,C28,*,C29,C17,*,*
+F4,?,?,*,F12,?,?,?,C7F14,?,?,*,*
+F7,?,?,*,C16,C4,F26,?,?,?,?,*,*
+F3,?,?,C23F12,?,?,C29F11,?,?,?,*,*,*
+*,C16F41,?,?,?,?,?,?,?,?,C7,C38,C3
+F17,?,?,?,*,F15,?,?,*,F6,?,?,?
+F21,?,?,?,C29,C23F8,?,?,C16,C4F14,?,?,?
+*,*,*,F39,?,?,?,?,?,?,?,?,C6
+*,*,*,C4F14,?,?,?,F8,?,?,F6,?,?
+*,*,F20,?,?,?,?,C17,C16,*,F9,?,?
+*,*,F12,?,?,F21,?,?,?,*,F10,?,?
+*,*,*,*,*,*,F17,?,?,*,*,*,*
+
+Sortida:
+Current status :
+0-->1
+1-->2
+Introduce a name
+3
+Saving a new kakuro with this name...
+New status :
+0-->1
+1-->2
+2-->3
+
+Resultat de la prova: ok
+###############################################################################################
+##TEST6--ELIMINAR
+Prova1
+Descripcio: Demanem l eliminacio d un kakuro del repo
+Objectius: veure si accepta un id de arxiu que no existeix
+Entrada: 10
+Sortida:
+Current status :
+0-->1
+1-->2
+2-->3
+enter a file ID number
+10
+Incorrect selection
+Deleting kakuro...
+New status :
+0-->1
+1-->2
+2-->3
+Resultat de la prova: ok, avisa que la seleccio no es correcte i no borra res
+(l estat nou es el mateix que l anterior).
+
+Prova2
+Descripcio: Demanem l eliminacio d un kakuro del repo
+Objectius: funcionalitat correcte
+Entrada: 2
+Sortida:
+Current status :
+0-->1
+1-->2
+2-->3
+enter a file ID number
+2
+.\repo\global\3.txt
+.\repo\solution\3-solution.txt
+File cannot be deleted
+Deleting kakuro...
+New status :
+0-->1
+1-->2
+
+Resultat de la prova: ok, el estat nou no te l arxiu eliminat

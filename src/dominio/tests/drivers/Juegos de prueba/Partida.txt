@@ -1,0 +1,318 @@
+***Jocs de proves driver partida***
+###############################################################################################
+##TEST1--INICIALITZACIO
+Prova 1
+Descripcio: Kakuro amb mes de una solució
+Objectius: funcionalitat de deteccio de kakuros no valids
+Entrada:
+n = 3;m = 3;
+
+*,C4,C5
+F4,?,?
+F5,?,?
+
+Sortida: Exception in thread "main" dominio.clases.ExceptionKakuro: The kakuro is more than a solution
+Resultat de la prova: ok
+
+Prova2
+Descripcio: Kakuro correcte amb una solucio
+Objectius: funcionalitat de deteccio de kakuros valids
+Entrada:
+n = 5; m = 5;
+
+*,*,*,C24,C7
+*,C6,C24F8,?,?
+F18,?,?,?,?
+F23,?,?,?,?
+F12,?,?,*,*
+
+Sortida: OK
+Resultat de la prova: ok, perque el kakuro es correcte
+
+
+Prova3
+Descripcio: Kakuro correcte amb una solucio pero mes gran
+Objectius: funcionalitat de deteccio de kakuros vàlids mes complexos
+
+n=13;m=13;
+
+*,*,*,*,*,C16,C3,*,*,*,*,*,*
+*,C6,C21,*,F11,?,?,C28,*,C29,C17,*,*
+F4,?,?,*,F12,?,?,?,C7F14,?,?,*,*
+F7,?,?,*,C16,C4,F26,?,?,?,?,*,*
+F3,?,?,C23F12,?,?,C29F11,?,?,?,*,*,*
+*,C16F41,?,?,?,?,?,?,?,?,C7,C38,C3
+F17,?,?,?,*,F15,?,?,*,F6,?,?,?
+F21,?,?,?,C29,C23F8,?,?,C16,C4F14,?,?,?
+*,*,*,F39,?,?,?,?,?,?,?,?,C6
+*,*,*,C4F14,?,?,?,F8,?,?,F6,?,?
+*,*,F20,?,?,?,?,C17,C16,*,F9,?,?
+*,*,F12,?,?,F21,?,?,?,*,F10,?,?
+*,*,*,*,*,*,F17,?,?,*,*,*,*
+
+Sortida: OK
+Resultat de la prova: ok, perque el kakuro es correcte
+###############################################################################################
+##TEST2--NOM KAKURO
+
+Prova1
+Descripcio: Donem nom a un kakuro
+Objectius: veure que la funcio estableix el nom que li introduim per terminal
+Entrada: nom
+Sortida: nom
+Resultat de la prova: ok
+
+###############################################################################################
+##TEST3--MIDA KAKURO
+
+Prova2
+Descripcio: Demanem la mida del kakuro
+Objectius: funcionalitat de manteniment de la mida
+Entrada:(2)
+
+*,*,*,C24,C7
+*,C6,C24F8,?,?
+F18,?,?,?,?
+F23,?,?,?,?
+F12,?,?,*,*
+
+Sortida: 5x5
+Resultat de la prova: ok
+
+
+Prova3
+Descripcio: Demanem la mida del kakuro
+Objectius: funcionalitat de manteniment de la mida
+Entrada: (3)
+
+*,*,*,*,*,C16,C3,*,*,*,*,*,*
+*,C6,C21,*,F11,?,?,C28,*,C29,C17,*,*
+F4,?,?,*,F12,?,?,?,C7F14,?,?,*,*
+F7,?,?,*,C16,C4,F26,?,?,?,?,*,*
+F3,?,?,C23F12,?,?,C29F11,?,?,?,*,*,*
+*,C16F41,?,?,?,?,?,?,?,?,C7,C38,C3
+F17,?,?,?,*,F15,?,?,*,F6,?,?,?
+F21,?,?,?,C29,C23F8,?,?,C16,C4F14,?,?,?
+*,*,*,F39,?,?,?,?,?,?,?,?,C6
+*,*,*,C4F14,?,?,?,F8,?,?,F6,?,?
+*,*,F20,?,?,?,?,C17,C16,*,F9,?,?
+*,*,F12,?,?,F21,?,?,?,*,F10,?,?
+*,*,*,*,*,*,F17,?,?,*,*,*,*
+
+Sortida: 13x13
+Resultat de la prova: ok
+###############################################################################################
+##TEST4--ESCRIURE
+
+Prova2
+Descripcio: Demanem a la clase partida la matriu corresponent al kakuro
+Objectius: tenir les matrius dels kakuros segons el format indicat
+Entrada: (2)
+*,*,*,C24,C7
+*,C6,C24F8,?,?
+F18,?,?,?,?
+F23,?,?,?,?
+F12,?,?,*,*
+
+Sortida:
+* * * C24 C7
+* C6 C24F8 ? ?
+F18 ? ? ? ?
+F23 ? ? ? ?
+F12 ? ? * *
+
+Resultat de la prova: ok
+
+
+Prova3
+Descripcio: Demanem a la clase partida la matriu corresponent al kakuro
+Objectius: pintar kakuros grans segons el format indicat
+Entrada: (3)
+
+*,*,*,*,*,C16,C3,*,*,*,*,*,*
+*,C6,C21,*,F11,?,?,C28,*,C29,C17,*,*
+F4,?,?,*,F12,?,?,?,C7F14,?,?,*,*
+F7,?,?,*,C16,C4,F26,?,?,?,?,*,*
+F3,?,?,C23F12,?,?,C29F11,?,?,?,*,*,*
+*,C16F41,?,?,?,?,?,?,?,?,C7,C38,C3
+F17,?,?,?,*,F15,?,?,*,F6,?,?,?
+F21,?,?,?,C29,C23F8,?,?,C16,C4F14,?,?,?
+*,*,*,F39,?,?,?,?,?,?,?,?,C6
+*,*,*,C4F14,?,?,?,F8,?,?,F6,?,?
+*,*,F20,?,?,?,?,C17,C16,*,F9,?,?
+*,*,F12,?,?,F21,?,?,?,*,F10,?,?
+*,*,*,*,*,*,F17,?,?,*,*,*,*
+
+Sortida:
+* * * * * C16 C3 * * * * * *
+* C6 C21 * F11 ? ? C28 * C29 C17 * *
+F4 ? ? * F12 ? ? ? C7F14 ? ? * *
+F7 ? ? * C16 C4 F26 ? ? ? ? * *
+F3 ? ? C23F12 ? ? C29F11 ? ? ? * * *
+* C16F41 ? ? ? ? ? ? ? ? C7 C38 C3
+F17 ? ? ? * F15 ? ? * F6 ? ? ?
+F21 ? ? ? C29 C23F8 ? ? C16 C4F14 ? ? ?
+* * * F39 ? ? ? ? ? ? ? ? C6
+* * * C4F14 ? ? ? F8 ? ? F6 ? ?
+* * F20 ? ? ? ? C17 C16 * F9 ? ?
+* * F12 ? ? F21 ? ? ? * F10 ? ?
+* * * * * * F17 ? ? * * * *
+
+Resultat de la prova: ok
+
+###############################################################################################
+##TEST5--INSERTAR VALOR
+
+Prova1
+Descripcio: Donem valor a una casella
+Objectius: deteccio de fila i columna incorrectes
+Entrada: 0 0 0
+Sortida: Incorrect row and column values
+Resultat de la prova: ok, no ho accepta i no li introdueix el valor a la matriu
+
+Prova2
+Descripcio: Donem valor a una casella
+Objectius: deteccio de valors de fila i columna fora de de rang
+Entrada: -1 10 8
+Sortida: Incorrect row and column values
+Resultat de la prova: ok, no ho accepta i no li introdueix el valor a la matriu
+
+Prova3
+Descripcio: Donem valor a una casella
+Objectius: deteccio de valor > 9
+Entrada: 1 3 10
+Sortida:The value must be between 1 and 9
+Resultat de la prova:  ok, no ho accepta i no li introdueix el valor a la matriu
+
+Prova4
+Descripcio: Donem valor a una casella
+Objectius: deteccio de valor < 1
+Entrada: 1 3 0
+Sortida:The value must be between 1 and 9
+Resultat de la prova:  ok, no ho accepta i no li introdueix el valor a la matriu
+
+Prova5
+Descripcio: Donem valor a una casella
+Objectius: deteccio de valor > suma_fila
+Entrada: 1 3 9
+Sortida:Row sum exceeded
+Resultat de la prova:  ok, no ho accepta i no li introdueix el valor a la matriu
+
+Prova6
+Descripcio: Donem valor a una casella
+Objectius: deteccio de valor > suma_columna
+Entrada: 2 1 7
+Sortida:Column sum exceeded
+Resultat de la prova:  ok, no ho accepta i no li introdueix el valor a la matriu
+
+Prova7
+Descripcio: Donem valor a una casella
+Objectius: funcionalitat correcta
+Entrada: 1 3 7
+Sortida:
+Resultat de la prova:  ok,  ho accepta i li introdueix el valor a la matriu
+
+###############################################################################################
+##TEST6--DEMANAR AYUDA
+Prova1
+Descripcio: Demanem la solucio de una  casella
+Objectius: deteccio de fila i columna incorrectes
+Entrada: 0 0
+Sortida: Incorrect row and column values
+Resultat de la prova: ok, no ho accepta
+
+Prova2
+Descripcio: Demanem la solucio de una  casella
+Objectius: deteccio de valors de fila i columna fora de de rang
+Entrada: -1 10
+Sortida: Incorrect row and column values
+Resultat de la prova: ok, no ho accepta
+
+Prova3
+Descripcio: Demanem la solucio de una casella
+Objectius: funcionalitat correcta
+Entrada: 1 3
+Sortida: 7
+Resultat de la prova:  ok,  ho accepta i li introdueix el valor a la matriu
+###############################################################################################
+##TEST7--SOLUCIONAR
+
+Prova2
+Descripcio: Demanem a la clase partida la matriu solucio corresponent al kakuro
+Objectius: pintar les matrius solucio dels kakuros segons el format indicat
+Entrada: (2)
+*,*,*,C24,C7
+*,C6,C24F8,?,?
+F18,?,?,?,?
+F23,?,?,?,?
+F12,?,?,*,*
+
+Sortida:
+* * * C24 C7
+* C6 C24F8 7 1
+F18 1 7 8 2
+F23 2 8 9 4
+F12 3 9 * *
+
+Resultat de la prova: ok
+
+
+Prova3
+Descripcio: Demanem a la clase partida la matriu solucio corresponent al kakuro
+Objectius: pintar solucions de kakuros grans segons el format indicat
+Entrada: (3)
+
+*,*,*,*,*,C16,C3,*,*,*,*,*,*
+*,C6,C21,*,F11,?,?,C28,*,C29,C17,*,*
+F4,?,?,*,F12,?,?,?,C7F14,?,?,*,*
+F7,?,?,*,C16,C4,F26,?,?,?,?,*,*
+F3,?,?,C23F12,?,?,C29F11,?,?,?,*,*,*
+*,C16F41,?,?,?,?,?,?,?,?,C7,C38,C3
+F17,?,?,?,*,F15,?,?,*,F6,?,?,?
+F21,?,?,?,C29,C23F8,?,?,C16,C4F14,?,?,?
+*,*,*,F39,?,?,?,?,?,?,?,?,C6
+*,*,*,C4F14,?,?,?,F8,?,?,F6,?,?
+*,*,F20,?,?,?,?,C17,C16,*,F9,?,?
+*,*,F12,?,?,F21,?,?,?,*,F10,?,?
+*,*,*,*,*,*,F17,?,?,*,*,*,*
+
+Sortida:
+* * * * * C16 C3 * * * * * *
+* C6 C21 * F11 9 2 C28 * C29 C17 * *
+F4 1 3 * F12 7 1 4 C7F14 5 9 * *
+F7 3 4 * C16 C4 F26 5 4 9 8 * *
+F3 2 1 C23F12 9 3 C29F11 3 1 7 * * *
+* C16F41 5 9 7 1 3 6 2 8 C7 C38 C3
+F17 9 2 6 * F15 8 7 * F6 1 3 2
+F21 7 6 8 C29 C23F8 6 2 C16 C4F14 4 9 1
+* * * F39 5 8 4 1 9 3 2 7 C6
+* * * C4F14 7 6 1 F8 7 1 F6 5 1
+* * F20 1 8 9 2 C17 C16 * F9 6 3
+* * F12 3 9 F21 5 9 7 * F10 8 2
+* * * * * * F17 8 9 * * * *
+Resultat de la prova: ok
+
+###############################################################################################
+##TEST8--GENERAR
+
+Prova1
+Descripcio: Prova de generacio de kakuros correctes a una partida
+Objectiu: Veure que genera kakuros en el format corresponent i valids
+Entrada: 3 3
+Sortida:
+* C14 C4
+F10 ? ?
+F8 ? ?
+Resultat de la prova: ok
+
+Prova2
+Descripcio: Prova de generacio de kakuros correctes a una partida
+Objectiu: Veure que genera kakuros en el format corresponent i validsamb n != m
+Entrada: 5 7
+Sortida:
+* C9 C16 * * * *
+F13 ? ? C15 C14 * *
+F29 ? ? ? ? C3 C14
+* * F23 ? ? ? ?
+* * * * F6 ? ?
+Resultat de la prova: ok
